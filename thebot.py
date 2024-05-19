@@ -41,9 +41,11 @@ async def setupTables():
 	queries = []
 	createChannelTableQuery = "CREATE TABLE IF NOT EXISTS channels(name TEXT UNIQUE, channelID INTEGER)"
 	createGuildTableQuery = "CREATE TABLE IF NOT EXISTS guilds(guildID INTEGER UNIQUE)"
+	createTemplateTableQuery = "CREATE TABLE IF NOT EXISTS template(name TEXT UNIQUE, url TEXT)"
 
 	queries.append(createChannelTableQuery)
 	queries.append(createGuildTableQuery)
+	queries.append(createTemplateTableQuery)
 
 	for query in queries:
 		await executeQuery(query)
