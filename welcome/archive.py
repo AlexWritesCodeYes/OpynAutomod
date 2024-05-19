@@ -101,9 +101,8 @@ async def archive(interaction: nextcord.Interaction, channel: nextcord.abc.Guild
 		if(len(msgList) > tooMany):
 			await logChannel.send("{} is a lot of messages! In the future, please try to keep conversation in the welcome channels to fewer than {} messages".format(len(msgList), tooMany))
 
-		await interaction.response.send_message("Success! The messages in " + channelName + " were archived.")
-		
 		cursor.close()
+		await interaction.response.send_message("Success! The messages in " + channelName + " were archived.")
 	except sqlite3.Error as error:
 		logMessage = "There was a sqlite3 error. Here it is: {}".format(error)
 		print(logMessage)
