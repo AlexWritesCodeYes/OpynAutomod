@@ -103,6 +103,9 @@ async def on_message(message: nextcord.Message):
 						logMessage = logMessage +  " There was a sqlite3 error. Here it is: {}".format(error)
 					finally:
 						print(logMessage)
+						cursor.close()
+						if(connection):
+							connection.close()
 	else:
 		print("bot message")
 
